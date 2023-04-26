@@ -1,0 +1,20 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Excerpts"
+  navbar:
+    left:
+      - href: https://marineenergy.app
+        text: Marine Energy Environmental Toolkit
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+
