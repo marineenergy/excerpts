@@ -5,5 +5,19 @@
     "title": "excerpts",
     "section": "",
     "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "test.html",
+    "href": "test.html",
+    "title": "excerpts",
+    "section": "",
+    "text": "# quarto render _ferc.qmd -P id:2 -o ferc_2.html\nlibrarian::shelf(\n  glue, here)\ndir_repos   &lt;- \"/share/github\"\ndir_scripts &lt;- glue(\"{dir_repos}/apps_dev/scripts\")\nsource(glue(\"{dir_scripts}/common.R\"))\n\nLoading required package: librarian\n\nsource(glue(\"{dir_scripts}/db.R\"))\n\n# params &lt;- list(\n#   id = 2)\n# dbListTables(con)\n\n\nx &lt;- tbl(con, \"ferc_docs\") |&gt; \n  filter(\n    rowid == !!params$id) |&gt; \n  collect()\n\n\nExcerpt:\nEffects of sediment suspension caused by anchor and cable installation on water quality; Effects of inadvertent return of drilling fluids; and Effects of toxins introduced by the Project on water quality, including: o Antifouling paint or coatings; o Accidental spills of fuel, lubricants, and hydraulic oil; and Effects of ground disturbing activities\nProject: PacWave-S\nDocument: PacWave South Final License Application, Applicant Prepared Environmental Assessment"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
   }
 ]
