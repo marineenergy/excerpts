@@ -1,0 +1,68 @@
+---
+pagetitle: "FERC document excerpt `r params$id`"
+params:
+  id: 230
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, echo=F, warning=FALSE, message=FALSE}
+# make_pages.R: quarto render ferc_template.qmd -P id:2 -o ferc_2.html
+
+# TODO:
+# - show tags from ferc_doc_tags styled like report.
+# - update index with table
+
+librarian::shelf(
+  glue, here, htmltools)
+dir_repos   <- "/share/github"
+dir_scripts <- glue("{dir_repos}/apps_dev/scripts")
+source(glue("{dir_scripts}/common.R"))
+source(glue("{dir_scripts}/db.R"))
+
+# params <- list(id = 230)
+# dbListTables(con)
+
+x <- tbl(con, "ferc_docs") |> 
+  filter(
+    rowid == !!params$id) |> 
+  collect() |> 
+  mutate(
+    prj_doc_att = ifelse(
+      is.na(prj_doc_attachment) | prj_doc_attachment == "",
+      prj_document,
+      glue("{prj_document} -- {prj_doc_attachment}")) )
+
+# functions ----
+ckbox <- function(x){ ifelse(is.na(x) | x == FALSE, "☐", "☑") }
+
+link_doc <- function(name, url){ ifelse(is.na(url) | url == "", name, glue("[{name}]({url})"))}
+```
+
+-   **Excerpt**\
+    `r x$detail`
+
+-   **Project**\
+    `r x$project`
+
+-   **Document**\
+    `r link_doc(x$prj_doc_att, x$prj_doc_attach_url)`
+
+-   **`r ckbox(x$ck_ixn)` Ixn**: Presented as potential interaction?\
+    `r x$ck_ixn`
+
+-   **`r ckbox(x$ck_obs)` Obs**: Described from observations at the project site?\
+    `r x$ck_obs`
+
+-   **`r ckbox(x$ck_mp)` MP**: Monitoring Plan?\
+    `r x$ck_mp`
+
+-   **`r ckbox(x$ck_amp)` AMP**: Adaptive Management Plan?\
+    `r x$ck_amp`
+
+-   **`r ckbox(x$ck_pme)` PME**: Protection, mitigation, and ehnhancement?\
+    `r x$ck_pme`
+
+-   **`r ckbox(x$ck_bmps)` BMP**: Best Management Practices applied?\
+    `r x$ck_bmps`
+
