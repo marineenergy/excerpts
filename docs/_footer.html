@@ -1,0 +1,23 @@
+<footer class="container-fluid no-gutters no-padding">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 col-sm-12 text-center">
+        <img src="images/logo-doe-eere.svg" class="logo" />
+      </div>
+      <div class="col-md-6 col-sm-12 text-md-left text-center">
+        <div class="p-3">
+          Copyright © 2023. <a href="/help.html#disclaimer">Disclaimer</a> & <a href="/help.html#who-funded-this-project">Acknowledgements</a>.
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// replace __js-replace_by_bug-url__.html in menu with 
+url_form = 'https://docs.google.com/forms/d/e/1FAIpQLSfOKbx4Y_hNUjSj8gfuTuzvTFTIaBDJCojDoNThvkZImc6ZsA/viewform';
+url_page = window.location.href;
+$("a:contains('Report a Bug')").attr({
+  href:   url_form + "?entry.738205286=" + url_page,
+  target: '_blank'});
+</script>

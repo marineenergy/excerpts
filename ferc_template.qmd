@@ -1,5 +1,5 @@
 ---
-pagetitle: "FERC document excerpt `r params$id`"
+title: "FERC excerpt `r params$id`"
 params:
   id: 230
 editor_options: 

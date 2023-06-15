@@ -82,9 +82,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-0PRJW4ZSZY"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0PRJW4ZSZY', { 'anonymize_ip': true});
+</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="libs/styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -95,7 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Excerpts</span>
+    <span class="navbar-title"><a class="navbar-brand" href="../index.html"><img src="../images/logo-horizontal-white.svg" width="190px" height="24px" class="d-inline-block align-text-top"></a></span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -104,13 +113,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://marineenergy.app" rel="" target="">
- <span class="menu-text">Marine Energy Environmental Toolkit</span></a>
+    <a class="nav-link" href="https://shiny.marineenergy.app/report-v2" rel="" target=""><i class="bi bi-fa-file-medical-alt" role="img">
+</i> 
+ <span class="menu-text">Reporting Tool</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="./../regs.html" rel="" target=""><i class="bi bi-fa-institution" role="img">
+</i> 
+ <span class="menu-text">Regulations</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-more" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">More</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-more">    
+        <li>
+    <a class="dropdown-item" href="./env.html" rel="" target="">
+ <span class="dropdown-text">Interactions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./about.html" rel="" target="">
+ <span class="dropdown-text">About</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./faq.html" rel="" target="">
+ <span class="dropdown-text">FAQ</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./js-replace_by_bug-url.html" rel="" target="">
+ <span class="dropdown-text">Report a Bug</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -126,7 +160,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -156,7 +190,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-</main> <!-- /main -->
+<footer class="container-fluid no-gutters no-padding column-screen">
+  <div class="container">
+    <div class="row justify-content-center align-items-end">
+      <div class="col text-center">
+        <img src="../images/logo-doe-eere.svg" class="logo">
+      </div>
+      <div class="col text-center">
+        <div class="p-3">
+          Copyright © 2023. <a href="../help.html#disclaimer">Disclaimer</a> &amp; <a href="../help.html#who-funded-this-project">Acknowledgements</a>.
+        </div>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </div>
+</footer><script>
+// move footer to bottom
+$(window).on('load', function() {
+ $('body').append($('footer'))
+});
+</script></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
