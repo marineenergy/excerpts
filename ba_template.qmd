@@ -1,0 +1,45 @@
+---
+title: "Biological Assessment excerpt `r params$id`"
+params:
+  id: 1
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, echo=F, warning=FALSE, message=FALSE}
+# make_pages.R: quarto render ba_template.qmd -P id:2 -o ba_2.html
+
+# TODO:
+# - show tags from ferc_doc_tags styled like report.
+# - update index with table
+
+librarian::shelf(
+  glue, here, htmltools)
+dir_repos   <- "/share/github"
+dir_scripts <- glue("{dir_repos}/apps_dev/scripts")
+source(glue("{dir_scripts}/common.R"))
+source(glue("{dir_scripts}/db.R"))
+
+# params <- list(id = 1)
+# dbListTables(con) |> str_subset("^ba")
+
+x <- tbl(con, "ba_doc_excerpts") |> 
+  filter(
+    rowid == !!params$id) |>
+  left_join(
+    tbl(con, "ba_docs"),
+    by = "ba_doc_file") |> 
+  collect()
+
+# functions ----
+link_doc <- function(name, url){ ifelse(is.na(url) | url == "", name, glue("[{name}]({url})"))}
+```
+
+-   **Excerpt**\
+    `r x$excerpt`
+
+-   **Project**\
+    `r x$ba_project`
+
+-   **Document**\
+    `r link_doc(x$ba_doc_file, x$ba_doc_url)`
